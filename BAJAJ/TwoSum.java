@@ -2,18 +2,13 @@ import java.util.*;
 
 class TwoSum {
     public int[] twoSum(int[] nums, int target) {
-        Map<Integer, Integer> seen = new HashMap<>();
-
-        for (int i = 0; i < nums.length; i++) {
-            int complement = target - nums[i];
-
-            if (seen.containsKey(complement)) {
-                return new int[]{seen.get(complement), i};
-            }
-
-            seen.put(nums[i], i);
+        HashMap<Integer,Integer> map = new HashMap<>();
+        for(int i=0;i<nums.length;i++){
+            int diff = target - nums[i];
+            if(map.containsKey(diff))
+                return new int[]{map.get(diff), i};
+            map.put(nums[i], i);
         }
-
         return new int[]{};
     }
 }
